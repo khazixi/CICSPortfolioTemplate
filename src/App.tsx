@@ -3,7 +3,7 @@ import { JSXElement } from 'solid-js'
 
 function Contact(props: { title: string, information: string, children: JSXElement }) {
   return (
-    <div class='grid grid-rows-2 grid-cols-4 hover:bg-gray-200 p-4'>
+    <div class='grid grid-rows-2 grid-cols-4 hover:bg-gray-200 p-4 min-w-full'>
       <div class='row-span-2 col-span-1 flex items-center'> {props.children} </div>
       <h2 class='col-span-3'> {props.title} </h2>
       <h3 class='col-span-3'> {props.information} </h3>
@@ -14,7 +14,7 @@ function Contact(props: { title: string, information: string, children: JSXEleme
 function Skill(props: { type: string, skills: string[] }) {
   const skillList = props.skills.join(', ')
   return (
-    <div class='hover:bg-gray-200 p-4'>
+    <div class='hover:bg-gray-200 p-4 min-w-full'>
       <h2> {props.type} </h2>
       <h3> {skillList} </h3>
     </div>
@@ -85,10 +85,11 @@ function App() {
           <hr />
 
           <SkillSection>
-            <Skill type='Programming Languages' skills={['Typescript', 'JavaScript', 'HTML', 'CSS']} />
+            <Skill type='Programming Languages' skills={['Typescript', 'JavaScript', 'PHP']} />
+            <Skill type='Scripting Languages' skills={['Bash', 'ZShell']} />
+            <Skill type='Operating Systems' skills={['Mac OS', 'Linux']} />
+            <Skill type='Writing Tools' skills={['LaTeX', 'Microsoft Word']} />
           </SkillSection>
-          <section>
-          </section>
         </ProfileSection>
         <div class='bg-white text-black rounded-lg shadow col-span-2 '>
         </div>
