@@ -24,9 +24,19 @@ function Skill(props: { type: string, skills: string[] }) {
 function Profile(props: { imageUrl: string, firstname: string, lastname: string, info: string }) {
   return (
     <section class='flex flex-col items-center p-4 gap-4'>
-      <img src={props.imageUrl} class='rounded-full h-48 w-48' />
+      <img src={props.imageUrl} class='rounded-full h-36 w-36' />
       <h1> {props.firstname + ' ' + props.lastname} </h1>
       <h2> {props.info}</h2>
+    </section>
+  )
+}
+
+function Education(props: { degree: string, graduation: string, school: string, location: string }) {
+  return (
+    <section>
+      <h2> {props.degree} </h2>
+      <h3 class='text-gray-700'> {props.graduation} </h3>
+      <h3> {props.school} - {props.location} </h3>
     </section>
   )
 }
@@ -39,7 +49,7 @@ function ProfileSection(props: { children: JSXElement }) {
   )
 }
 
-function ContactSection(props: {children: JSXElement}) {
+function ContactSection(props: { children: JSXElement }) {
   return (
     <section class='flex flex-col items-center p-4 gap-4'>
       {props.children}
@@ -47,12 +57,21 @@ function ContactSection(props: {children: JSXElement}) {
   )
 }
 
-function SkillSection(props: {children: JSXElement}) {
+function SkillSection(props: { children: JSXElement }) {
   return (
     <section class='flex flex-col items-center p-4 gap-4'>
       <h1> Skills </h1>
       {props.children}
     </section>
+  )
+}
+
+function EducationSection(props: { children: JSXElement }) {
+  return (
+    <div class='bg-white text-black rounded-lg shadow col-span-2 p-4'>
+      <h1 class='font-bold pl-0 p-2 text-xl'> Education </h1>
+      {props.children}
+    </div>
   )
 }
 
@@ -91,8 +110,16 @@ function App() {
             <Skill type='Writing Tools' skills={['LaTeX', 'Microsoft Word']} />
           </SkillSection>
         </ProfileSection>
-        <div class='bg-white text-black rounded-lg shadow col-span-2 '>
-        </div>
+
+        <EducationSection>
+          <Education degree='M.S. in Computer Science' graduation='Anticipated May 2026' school='University of Massachussets Amherst' location='Amherst, MA' />
+
+          <hr />
+
+          <Education degree='B.S. in Computer Science' graduation='May 2024' school='University of Massachussets Amherst' location='Amherst, MA' />
+
+          <hr />
+        </EducationSection>
         <div class='bg-white text-black rounded-lg shadow col-span-2 '>
         </div>
       </main>
