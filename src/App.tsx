@@ -33,9 +33,9 @@ function Profile(props: { imageUrl: string, firstname: string, lastname: string,
 
 function Education(props: { degree: string, graduation: string, school: string, location: string }) {
   return (
-    <section>
+    <section class='flex flex-col gap-1'>
       <h2> {props.degree} </h2>
-      <h3 class='text-gray-700'> {props.graduation} </h3>
+      <h3 class='text-gray-500'> {props.graduation} </h3>
       <h3> {props.school} - {props.location} </h3>
     </section>
   )
@@ -43,7 +43,7 @@ function Education(props: { degree: string, graduation: string, school: string, 
 
 function ProfileSection(props: { children: JSXElement }) {
   return (
-    <article class='bg-white text-black rounded-lg shadow col-span-1 row-span-4 p-4'>
+    <article class='bg-white text-black rounded-lg shadow-lg col-span-1 row-span-4 p-4'>
       {props.children}
     </article>
   )
@@ -68,8 +68,17 @@ function SkillSection(props: { children: JSXElement }) {
 
 function EducationSection(props: { children: JSXElement }) {
   return (
-    <div class='bg-white text-black rounded-lg shadow col-span-2 p-4'>
+    <div class='gap-4 flex flex-col bg-white text-black rounded-lg shadow-lg col-span-2 p-4'>
       <h1 class='font-bold pl-0 p-2 text-xl'> Education </h1>
+      {props.children}
+    </div>
+  )
+}
+
+function WorkSection(props: { children: JSXElement }) {
+  return (
+    <div class='gap-4 flex flex-col bg-white text-black rounded-lg shadow-lg col-span-2 p-4'>
+      <h1 class='font-bold pl-0 p-2 text-xl'> Work Experience </h1>
       {props.children}
     </div>
   )
@@ -117,11 +126,11 @@ function App() {
           <hr />
 
           <Education degree='B.S. in Computer Science' graduation='May 2024' school='University of Massachussets Amherst' location='Amherst, MA' />
-
-          <hr />
         </EducationSection>
-        <div class='bg-white text-black rounded-lg shadow col-span-2 '>
-        </div>
+
+        <WorkSection>
+          <p> Data </p>
+        </WorkSection>
       </main>
     </>
   )
