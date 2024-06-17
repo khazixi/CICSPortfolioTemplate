@@ -6,7 +6,7 @@ import { Profile, Skill, Contact, Education, Work } from './components'
 function App() {
   return (
     <>
-      <main class='bg-gray-100 min-h-dvh grid grid-cols-3 gap-4 p-4'>
+      <main class='bg-gray-100 min-h-dvh lg:grid lg:grid-cols-3 lg:px-12 flex flex-col gap-4 p-4'>
         <ProfileSection>
           <Profile
             imageUrl='https://user-images.githubusercontent.com/42506001/221354918-01bf0e89-48be-4df7-85bb-cdf5d0136f2a.png'
@@ -21,7 +21,7 @@ function App() {
             <Contact title='Phone Number' information='781-000-0000'>
               <Phone />
             </Contact>
-            <Contact title='Email' information='example@umass.edu'>
+            <Contact title='Email' information='example@umass.edu' copy>
               <Mail />
             </Contact>
             <Contact title='Address' information='639 North Pleasant Street'>
