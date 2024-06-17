@@ -1,11 +1,19 @@
 import { JSXElement } from "solid-js"
 
-export function Contact(props: { title: string, information: string, children: JSXElement }) {
+
+export function Contact(props: { title: string, information: string, children: JSXElement, copy?: true }) {
   return (
-    <div class='grid grid-rows-2 grid-cols-4 hover:bg-gray-200 p-2 min-w-full'>
+    <div class='grid grid-rows-2 grid-cols-4 hover:bg-gray-200 p-2 min-w-full'
+      classList={{ 'active:bg-gray-300': props.copy }}
+      onclick={() => navigator.clipboard.writeText(props.information) }
+    >
       <div class='row-span-2 col-span-1 flex items-center'> {props.children} </div>
       <h2 class='col-span-3'> {props.title} </h2>
       <h3 class='col-span-3'> {props.information} </h3>
+
+      <section popover='auto' role="tooltip">
+        <p> Copied </p>
+      </section>
     </div>
   )
 }
